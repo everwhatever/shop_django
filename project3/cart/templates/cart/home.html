@@ -1,0 +1,31 @@
+{% extends 'products/base.html'%}
+{% block content %}
+  <h1>cart</h1>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in cart.products.all %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{product.title}}</td>
+      <td>{{product.price}}</td>
+    </tr>
+
+    {% endfor %}
+    <tr>
+      <td colspan="2"></td>
+      <td><b>Total: </b>{{cart.total}}</td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td><a href="{% url 'cart:checkout'%}">Checkout</a></td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

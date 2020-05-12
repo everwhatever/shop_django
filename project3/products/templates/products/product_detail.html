@@ -1,0 +1,9 @@
+{% extends 'products/base.html' %}
+{% block content %}
+  <h2>{{product.title}}</h2><br>
+  {{product.description}}<br>
+  {{product.price}}
+
+  {% include 'products/cart_update.html' with product=product cart=cart%}
+
+{% endblock %}
